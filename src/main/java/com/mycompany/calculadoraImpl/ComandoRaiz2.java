@@ -4,21 +4,24 @@
  * and open the template in the editor.
  */
 package com.mycompany.calculadoraImpl;
+
 import com.mycompany.calculadoracmd.Command;
+
 /**
  *
  * @author usuario
  */
-public class ComandoRaiz implements Command{
-    
-     public double ejecutar(double indice, double radicando) {
-        
-        return Math.pow(radicando, 1 / (indice));
-        
-    }
+public class ComandoRaiz2 implements Command {
 
     @Override
-    public double ejecutar(double op1) {
+    public double ejecutar(double subradical) {
+
+        return Math.sqrt(subradical);
+    }
+  
+    @Override
+    public double ejecutar(double op1, double op2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }
