@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class AnalizadorSintactico {
 
-    Restar restar = new Restar();
+    ComandoResta restar = new ComandoResta();
     ArrayList<Double> numero = new ArrayList<Double>();
     ArrayList<String> operador = new ArrayList<String>();
 
