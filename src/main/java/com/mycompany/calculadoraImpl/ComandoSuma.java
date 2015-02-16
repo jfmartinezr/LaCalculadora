@@ -19,5 +19,10 @@ public class ComandoSuma implements Command{
     public double ejecutar(double op1, double op2) {
         return op1+op2;
     }
+
+    @Override
+    public double ejecutar(double op1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
