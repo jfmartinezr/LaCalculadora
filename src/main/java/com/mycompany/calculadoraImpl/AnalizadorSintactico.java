@@ -5,80 +5,73 @@
  */
 package com.mycompany.calculadoraImpl;
 
-import java.util.ArrayList;
 /**
  *
  * @author usuario
  */
 public class AnalizadorSintactico {
+       
+    Invocador invocador = new Invocador();
+   
+    
+    public int analizadorSintactico2(String ecuacion) {
+        double[] arregloNumeros = new double[10];
+        String [] arregloOperadores = new String[10];
+        char[] arregloEcuacion = ecuacion.toCharArray();
+        for (int i = 0; i < arregloEcuacion.length; i++) {
+           //System.out.print(arregloEcuacion[i]);
+            
+            double varNumDouble;
+            if (arregloEcuacion[i] == '0' || arregloEcuacion[i] == '1' || arregloEcuacion[i] == '2' || arregloEcuacion[i] == '3' || arregloEcuacion[i] == '4' || arregloEcuacion[i] == '5' || arregloEcuacion[i] == '6' || arregloEcuacion[i] == '7' || arregloEcuacion[i] == '8' || arregloEcuacion[i] == '9') {
+                char aux = arregloEcuacion[i];
+                varNumDouble = Character.getNumericValue(aux);
+                arregloNumeros[i] = varNumDouble;
+                System.out.print(arregloNumeros[i]);
+            }
 
-    ComandoResta restar = new ComandoResta();
-    ArrayList<Double> numero = new ArrayList<Double>();
-    ArrayList<String> operador = new ArrayList<String>();
-
-    public void declarar() {
-
-    }
-
-    public String analizadorSintactico(String ecuación) {
-        numero.add(3.00);
-        numero.add(40.00);
-        numero.add(50.00);
-        operador.add("*");
-        operador.add("+");
-        operador.add("/");
-        operador.add("-");
-        System.out.println("inicia");
-
-        for (int i = 0; i < numero.size(); i++) {
-
-            System.out.print(numero.get(i));
-
-            for (int j = 0; j < operador.size(); j++) {
-
-                if (operador.get(j).equals("*")) {
-
-                    System.out.print(operador.get(j));
-                    break;
-                }
-                if (operador.get(j).equals("+")) {
-
-                    System.out.print(operador.get(j));
-                    break;
-                }
-                if (operador.get(j).equals("/")) {
-
-                    System.out.print(operador.get(j));
-                    break;
-                }
-                if (operador.get(j).equals("-")) {
-
-                    System.out.print(operador.get(j));
-                    break;
+            if (arregloEcuacion[i] == '-' || arregloEcuacion[i] == '+' || arregloEcuacion[i] == '*' || arregloEcuacion[i] == '/' || arregloEcuacion[i] == '%' || arregloEcuacion[i] == 'r' || arregloEcuacion[i] == 'R' || arregloEcuacion[i] == '^' || arregloEcuacion[i] == 'l' || arregloEcuacion[i] == 's' || arregloEcuacion[i] == 'c' || arregloEcuacion[i] == 't') {
+                char aux2 = arregloEcuacion[i];
+                arregloOperadores[i] = ""+aux2;
+                System.out.print(arregloOperadores[i]);
+            }
+            /*(arregloEcuacion[i] == "-" || arregloEcuacion[i] == "+" || arregloEcuacion[i] == "*" || arregloEcuacion[i] == "/" || arregloEcuacion[i] == "%" || arregloEcuacion[i] == "r" || arregloEcuacion[i] == "R" || arregloEcuacion[i] == "^" || arregloEcuacion[i] == "l" || arregloEcuacion[i] == "s" || arregloEcuacion[i] == "c" || arregloEcuacion[i] == "t") {*/
+        }
+        
+        for (int i = 0; i < arregloNumeros.length; i++) {
+          
+            System.out.println(arregloNumeros[i]);
+          
+        }
+         for (int i = 0; i < arregloOperadores.length; i++) {
+          
+            System.out.println(arregloOperadores[i]);
+          
+        }
+         for (int i = 0; i < arregloNumeros.length; i++) {
+                        
+            for (int j = 0; j < arregloOperadores.length; j++) {
+            
+                       
+                if( arregloOperadores[j].equals("r") || arregloOperadores[j] == "R" || arregloOperadores[j] == "l" ||                   arregloOperadores[j] == "s" || arregloOperadores[j] == "c" || arregloOperadores[j] == "t")
+                {
+                  invocador.ejecutarUnitaria(arregloNumeros[i], arregloOperadores[j]);
+                  System.out.println(" p"+invocador.ejecutarUnitaria(arregloNumeros[i], arregloOperadores[j]));                 
                 }
             }
-        }
-        System.out.println("finaliza");
-
-        return "";
-    }
-
-    public int analizadorSintactico2(String ecuacion) {
-
-        char[] charA = ecuacion.toCharArray();
-        int[] intA = new int[100];
-        System.out.println(charA);
-        for (int i = 0; i < charA.length; i++) {
-            int varint;
-            if (charA[i] == '0'||charA[i] == '1'||charA[i] == '2'||charA[i] == '3'||charA[i] == '4'||charA[i] == '5'||charA[i] == '6'||charA[i] == '7'||charA[i] == '8'||charA[i] == '9') {
-                char aux = charA[i];
-                varint = Character.getNumericValue(aux);
-                return varint;
-            }    
-        }
+         }
+        
+        
+        
 
         return 0;
+    }    
+
+    public static void main(String[] args) {
+        AnalizadorSintactico as = new AnalizadorSintactico();
+        as.analizadorSintactico2("r8");
 
     }
+    
+    
 
 }
