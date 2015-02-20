@@ -23,15 +23,13 @@ public class Invocador {
         comandos.put("*"    ,   new ComandoMultiplicar());
         comandos.put("/"    ,   new ComandoDivision());
         comandos.put("%"    ,   new ComandoCociente());
-        comandos.put("raiz2",   new ComandoRaiz2());
-        comandos.put("raiz" ,   new ComandoRaiz());
+        comandos.put("r"    ,   new ComandoRaiz2());
+        comandos.put("R"    ,   new ComandoRaiz());
         comandos.put("^"    ,   new ComandoElevar());
-        comandos.put("log10",   new ComandoLogaritmo10());
-        comandos.put("sen"  ,   new ComandoSeno());
-        comandos.put("cos"  ,   new ComandoCoseno());
-        comandos.put("tang" ,   new ComandoTangente());
-        
-        
+        comandos.put("l"    ,   new ComandoLogaritmo10());
+        comandos.put("s"    ,   new ComandoSeno());
+        comandos.put("c"    ,   new ComandoCoseno());
+        comandos.put("t"    ,   new ComandoTangente());       
     }
     
     public double ejecutarUnitaria(double op1, String operador){
